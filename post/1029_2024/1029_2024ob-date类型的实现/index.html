@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1029_2024/1029_2024ob-date%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1029_2024/1029_2024ob-date%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,8 +383,42 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="1029_2024ob-date类型的实现">
+<a class="header-anchor" href="#1029_2024ob-date%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%ae%9e%e7%8e%b0"></a>
+1029_2024OB-date类型的实现
+</h1><h2 id="date类型的实现">
+<a class="header-anchor" href="#date%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%ae%9e%e7%8e%b0"></a>
+date类型的实现
+</h2><pre><code> 参考教程: https://open.oceanbase.com/course/detail/9231
+</code></pre>
+<p><strong>开启客户端&amp;服务端:</strong>
+$ ps -ef |grep ob
+$ kill +进程ip (正在运行的其他的占用了6789端口的ob服务器关掉)</p>
+<p>直接按vscode的 f5 进行debug (因为在1029_2025OB环境的配置2中, 已经在launch.json里面设置了启动时候的 server服务器了, 所以直接debug运行就好了)</p>
+<p>启动服务器后, cd build
+$ ./bin/obclient -p 6789</p>
+<p><strong>创建表以及测试语句记录:</strong></p>
+<pre tabindex="0"><code>  create TABLE date_table(id int, udate date);
+  create INDEX index_id on date_table(u_date);
 
+  insert into date_table VALUES(1, &#39;2020-01-21&#39;);
+  insert into date_table VALUES(2, &#39;2021-01-23&#39;);
+  insert into date_table VALUES(3, &#39;2020-04-21&#39;);
+  insert into date_table VALUES(4, &#39;2025-01-21&#39;);
+  insert into date_table VALUES(5, &#39;2020-09-21&#39;);
+  insert into date_table VALUES(6, &#39;2020-12-2&#39;);
+  insert into date_table VALUES(7, &#39;2024-11-21&#39;);
+  
+   select * from date_table where u_date &gt; &#39;2020-1-20&#39;;
+   select * from date_table where u_date &lt; &#39;2024-1-9&#39;;
+   select * from date_table where u_date = &#39;2024-1-9&#39;;
+</code></pre><p>重新编译代码记录</p>
+<pre tabindex="0"><code>  cd ./minidb
+  sudo bash build.sh init
+  成功执行
+  bash build.sh
+  成功编译
+</code></pre>
       
     </div>
     <footer class="article-footer">
@@ -426,7 +460,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1029_2024/1029_2024ob%E7%8E%AF%E5%A2%83%E7%BB%A7%E7%BB%AD%E6%90%AD%E5%BB%BA/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +478,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1027_2024/%E5%86%85%E5%AD%98%E6%96%B9%E5%90%91-%E5%86%85%E5%AD%981/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +520,11 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#date类型的实现">date类型的实现</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +818,11 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#date类型的实现">date类型的实现</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

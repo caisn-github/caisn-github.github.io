@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,93 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h2 id="事项清单">
+<a class="header-anchor" href="#%e4%ba%8b%e9%a1%b9%e6%b8%85%e5%8d%95"></a>
+事项清单:
+</h2><table>
+  <thead>
+      <tr>
+          <th>项目</th>
+          <th>完成进度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ubuntu server连接网络  - 桥接模式</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>ubuntu配置静态ip</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>ubuntu连接vscode</td>
+          <td>√</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="ubuntu-server-配置网络">
+<a class="header-anchor" href="#ubuntu-server-%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c"></a>
+ubuntu server 配置网络
+</h2><h4 id="1-可以ping-通物理机-但是无法ping-通wwwbaiducom">
+<a class="header-anchor" href="#1-%e5%8f%af%e4%bb%a5ping-%e9%80%9a%e7%89%a9%e7%90%86%e6%9c%ba-%e4%bd%86%e6%98%af%e6%97%a0%e6%b3%95ping-%e9%80%9awwwbaiducom"></a>
+1. 可以ping 通物理机 但是无法ping 通www.baidu.com:
+</h4><pre><code>      其中物理机的网络: [control panel --&gt; network --&gt; network view]
+      物理机: 192.168.56.1 192.168.50.1
+      vmnet8: 设置了NAT模式: 192.168.14.2  -- 物理机: 192.168.14.1
+      vmnet1: 设置了仅主机模式: 192.168.13.2 -- 物理机: 192.168.13.1
+      还有一个默认的网关: 172.18.112.1 
+</code></pre>
+<p>参考解决办法: <a href="https://blog.csdn.net/booklijian/article/details/116491288">https://blog.csdn.net/booklijian/article/details/116491288</a>
+在 /etc/systemd/resolved.conf文件中修改, 增加DNS信息
+并以root运行以下命令</p>
+<pre tabindex="0"><code>systemctl restart systemd-resolved
+systemctl enable systemd-resolved
+ 
+mv /etc/resolv.conf  /etc/resolv.conf.bak
+ln -s /run/systemd/resolve/resolv.conf /etc/
+</code></pre><h2 id="ubuntu-设置静态ip">
+<a class="header-anchor" href="#ubuntu-%e8%ae%be%e7%bd%ae%e9%9d%99%e6%80%81ip"></a>
+ubuntu 设置静态ip
+</h2><p>设置静态ip时候经常发生错误,后面查看了,查看了下本机的route -n:
+<img src="image.png" alt="
+">
+<!-- raw HTML omitted -->也就是说, 172.10.112.的网关就是网桥模式的默认网关,而不是192.168.56.1和192.168.50.1之类的<!-- raw HTML omitted --></p>
+<p>另外子网掩码的长度也不是24,而是20
+<img src="image-1.png" alt="
+">
+<img src="image-2.png" alt="
+"></p>
+<p>于是最终配置完成了:
+<img src="image-3.png" alt="
+">
+ping baidu成功</p>
+<h3 id="附-编辑etcnetplan50-yaml文件">
+<a class="header-anchor" href="#%e9%99%84-%e7%bc%96%e8%be%91etcnetplan50-yaml%e6%96%87%e4%bb%b6"></a>
+附: 编辑/etc/netplan/50-&hellip;.yaml文件
+</h3><pre><code>      编辑完之后, 输入 netplan apply应用
+</code></pre>
+<h2 id="ubuntu连接vscode">
+<a class="header-anchor" href="#ubuntu%e8%bf%9e%e6%8e%a5vscode"></a>
+ubuntu连接vscode
+</h2><p>这个比较简单, 大概记录下流程:</p>
+<ul>
+<li>
+<ol>
+<li>物理机下载安装最新版vscode</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>vscode下载以下插件: (remote ssh)
+<img src="image-4.png" alt="alt text"></li>
+</ol>
+</li>
+<li>3.远程连接
+<img src="image-5.png" alt="
+">
+按照提示走就行</li>
+</ul>
 
       
     </div>
@@ -426,7 +512,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1020_2024/1020_2024_github%E7%9A%84ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +530,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt="Hello World"
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/hello/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            Hello World
           
         </h3>
       </div>
@@ -486,7 +572,22 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事项清单">事项清单:</a></li>
+    <li><a href="#ubuntu-server-配置网络">ubuntu server 配置网络</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu-设置静态ip">ubuntu 设置静态ip</a>
+      <ul>
+        <li><a href="#附-编辑etcnetplan50-yaml文件">附: 编辑/etc/netplan/50-&hellip;.yaml文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu连接vscode">ubuntu连接vscode</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +881,22 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事项清单">事项清单:</a></li>
+    <li><a href="#ubuntu-server-配置网络">ubuntu server 配置网络</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu-设置静态ip">ubuntu 设置静态ip</a>
+      <ul>
+        <li><a href="#附-编辑etcnetplan50-yaml文件">附: 编辑/etc/netplan/50-&hellip;.yaml文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu连接vscode">ubuntu连接vscode</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

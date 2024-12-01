@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1029_2024/1029_2024ob%E7%8E%AF%E5%A2%83%E7%BB%A7%E7%BB%AD%E6%90%AD%E5%BB%BA/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1029_2024/1029_2024ob%E7%8E%AF%E5%A2%83%E7%BB%A7%E7%BB%AD%E6%90%AD%E5%BB%BA/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,8 +383,72 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
-
+        <h1 id="1029-ob环境继续搭建">
+<a class="header-anchor" href="#1029-ob%e7%8e%af%e5%a2%83%e7%bb%a7%e7%bb%ad%e6%90%ad%e5%bb%ba"></a>
+1029-OB环境继续搭建
+</h1><h2 id="环境继续搭建">
+<a class="header-anchor" href="#%e7%8e%af%e5%a2%83%e7%bb%a7%e7%bb%ad%e6%90%ad%e5%bb%ba"></a>
+环境继续搭建
+</h2><pre><code> 参考教程: https://open.oceanbase.com/train?questionId=600011
+</code></pre>
+<h3 id="报错--解决方法">
+<a class="header-anchor" href="#%e6%8a%a5%e9%94%99--%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95"></a>
+报错 &amp;&amp; 解决方法:
+</h3><ul>
+<li>
+<p><strong>报错1:</strong></p>
+<pre><code>在安装 libaio1
+sudo apt-get install libaio1
+ Reading package lists... Done
+ Building dependency tree... Done
+ E: Package 'libaio1' has no installation candidate
+</code></pre>
+</li>
+</ul>
+<p>解决办法: 更换apt-get源</p>
+<pre tabindex="0"><code>这里找到了清华镜像源进行替换:
+https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+</code></pre><pre><code> 目前ubuntu24.04 noble版本将sourlce.list放置到了一个新的目录下:
+ /etc/apt/sources.list.d/ubuntu.sources
+ cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+ 然后重新编辑, 将清华源加入后: 
+ 执行sudo apt-get update; sudo apt-get upgrade
+</code></pre>
+<ul>
+<li><strong>报错2:</strong>
+<pre tabindex="0"><code>执行 sudo apt-get update的时候, 出现
+ E: The repository &#39;http://archive.canonical.com lucid Release&#39; does not have a Release file
+</code></pre>这里是因为 /etc/apt/source.lists.d/目录下有无法获取的源,
+找找找:
+<img src="image.png" alt="
+">
+把canonial的这个文件删除后重新执行命令</li>
+</ul>
+<pre tabindex="0"><code>sudo rm archive_uri-http_archive_canonical_com_-noble.list
+sudo apt-get update
+</code></pre><ul>
+<li><strong>报错3</strong></li>
+</ul>
+<pre tabindex="0"><code>好的更换了清华源发现没卵用
+我猜测 libaio1 可能是最近才出的, 或许要使用wget或者curl的方法去直接下载链接 
+</code></pre><p>这次直接google ubuntu24 安装 libaio1 终于出现了一堆链接, 看来是找对了, let us try try: <a href="https://blog.csdn.net/engchina/article/details/139812240">https://blog.csdn.net/engchina/article/details/139812240</a></p>
+<pre tabindex="0"><code></code></pre><h3 id="第一次提交">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e6%ac%a1%e6%8f%90%e4%ba%a4"></a>
+第一次提交:
+</h3><pre tabindex="0"><code>git checkout -b work1 origin/2024-compertition
+git push origin work1:work1
+</code></pre><h3 id="debug环境初步搭建完成">
+<a class="header-anchor" href="#debug%e7%8e%af%e5%a2%83%e5%88%9d%e6%ad%a5%e6%90%ad%e5%bb%ba%e5%ae%8c%e6%88%90"></a>
+debug环境初步搭建完成
+</h3><p>好累&hellip;
+参考的教程:
+<a href="https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/--">https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/--</a>使用vscode进行开发, 这里设置了launch.josn以及tasks.json才能正常跑起来, 把服务端开起来, 然后打开客户端, 连接到数据库, debug模式已经启动了
+<a href="https://oceanbase.github.io/miniob/how_to_run/">https://oceanbase.github.io/miniob/how_to_run/</a>
+<img src="image-1.png" alt="alt text"></p>
+<pre tabindex="0"><code>cd miniob/build
+服务端打开:  ./bin/oberver -f ../etc/oberver.ini -p 6789
+客户端打开:  ./bin/obclient -p 6789
+</code></pre>
       
     </div>
     <footer class="article-footer">
@@ -426,7 +490,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1030_2024/1030_ob_droptable/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +508,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1029_2024/1029_2024ob-date%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +550,17 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境继续搭建">环境继续搭建</a>
+      <ul>
+        <li><a href="#报错--解决方法">报错 &amp;&amp; 解决方法:</a></li>
+        <li><a href="#第一次提交">第一次提交:</a></li>
+        <li><a href="#debug环境初步搭建完成">debug环境初步搭建完成</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +854,17 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境继续搭建">环境继续搭建</a>
+      <ul>
+        <li><a href="#报错--解决方法">报错 &amp;&amp; 解决方法:</a></li>
+        <li><a href="#第一次提交">第一次提交:</a></li>
+        <li><a href="#debug环境初步搭建完成">debug环境初步搭建完成</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

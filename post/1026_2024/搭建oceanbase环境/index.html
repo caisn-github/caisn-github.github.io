@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1026_2024/%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1026_2024/%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,101 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h2 id="搭建oceanbase开发环境----编译--运行">
+<a class="header-anchor" href="#%e6%90%ad%e5%bb%baoceanbase%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83----%e7%bc%96%e8%af%91--%e8%bf%90%e8%a1%8c"></a>
+搭建OceanBase开发环境 &ndash; 编译 &amp; 运行
+</h2><p>[已报名参加大赛]</p>
+<p><!-- raw HTML omitted -->参照教程:<!-- raw HTML omitted -->
+<a href="https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2">https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2</a></p>
+<p><a href="https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md">https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md</a></p>
+<h2 id="环境搭建">
+<a class="header-anchor" href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba"></a>
+环境搭建
+</h2><pre><code> 已经安装的工具如下: 
+</code></pre>
+<pre tabindex="0"><code>--- 以下使用apt install即可安装, 安装之前先更行apt: sudo apt update ; sudo apt upgrade
+
+casinan@caisinan:~/Desktop$ cmake --version
+cmake version 3.28.3
+
+casinan@caisinan:~/Desktop$ make --version
+GNU Make 4.3
+
+casinan@caisinan:~/Desktop$ g++ --version
+g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+
+casinan@caisinan:~/Desktop$ gcc --version
+gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+
+casinan@caisinan:~/Desktop$ sudo apt install googletest
+[sudo] password for casinan: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+googletest is already the newest version (1.14.0-1).
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+</code></pre><p>其中libevent的安装方式如下:</p>
+<pre tabindex="0"><code>wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
+
+然后参考教程: https://blog.csdn.net/superhoner/article/details/112001995
+
+配置安装环境:
+cd libevent-2.1.11-stable 
+./configure --prefix=/usr
+
+测试是否安装成功:
+ls -al /usr/local/lib | grep libevent
+</code></pre><p>其中jsoncpp的安装方式如下:</p>
+<pre tabindex="0"><code>参考教程 : https://blog.csdn.net/qq_52201535/article/details/133581163
+
+安装:  
+sudo apt-get install libjsoncpp-dev
+sudo apt install libjson-c-dev
+
+检查是否安装成功:
+ls /usr/include/jsoncpp/json/
+ls /usr/include/json-c/
+
+*******如何使用***:
+#include &lt;jsoncpp/json/json.h&gt;
+#include &lt;json-c/json.h&gt;
+编译: [链接库]
+g++ -l jsoncpp
+g++ -l ljson-c
+</code></pre><p>flex安装: sudo apt-get install flex</p>
+<p>bison安装参考: <a href="https://blog.csdn.net/Mculover666/article/details/118934814">https://blog.csdn.net/Mculover666/article/details/118934814</a></p>
+<h2 id="尝试编译">
+<a class="header-anchor" href="#%e5%b0%9d%e8%af%95%e7%bc%96%e8%af%91"></a>
+尝试编译
+</h2><pre><code>  cd ./minidb
+  sudo bash build.sh init
+  成功执行
+  bash build.sh
+  成功编译
+</code></pre>
+<h2 id="打包一个镜像">
+<a class="header-anchor" href="#%e6%89%93%e5%8c%85%e4%b8%80%e4%b8%aa%e9%95%9c%e5%83%8f"></a>
+打包一个镜像
+</h2><p>用vmware直接克隆一个备份即可</p>
+<h2 id="运行oceanbase数据库">
+<a class="header-anchor" href="#%e8%bf%90%e8%a1%8coceanbase%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+运行oceanBase数据库
+</h2><p>这里记录一下提交代码的网址:
+<a href="https://open.oceanbase.com/train?questionId=200001">https://open.oceanbase.com/train?questionId=200001</a></p>
+<p>oceanBase如何运行起来:
+<a href="https://oceanbase.github.io/miniob/how_to_run/">https://oceanbase.github.io/miniob/how_to_run/</a></p>
+<p>命令记录:</p>
+<pre tabindex="0"><code>cd home/casinan/workspace/oceanBCompertition/miniob/build
+以监听TCP端口的方式启动服务端程序:
+./bin/observer -f ../etc/observer.ini -p 6789
+
+打开另一个终端:
+到build目录下:
+客户端连接到服务端的6789端口:
+./bin/obclient -p 6789
+</code></pre><p><img src="image-1.png" alt="alt text"></p>
+<p>好的准备提交第一笔代码</p>
+<p>[备注: 此文档已经提交oceanBase官网]</p>
 
       
     </div>
@@ -426,7 +520,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1027_2024/%E5%86%85%E5%AD%98%E6%96%B9%E5%90%91-%E5%86%85%E5%AD%981/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +538,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1026_2024/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +580,15 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
+    <li><a href="#环境搭建">环境搭建</a></li>
+    <li><a href="#尝试编译">尝试编译</a></li>
+    <li><a href="#打包一个镜像">打包一个镜像</a></li>
+    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +882,15 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
+    <li><a href="#环境搭建">环境搭建</a></li>
+    <li><a href="#尝试编译">尝试编译</a></li>
+    <li><a href="#打包一个镜像">打包一个镜像</a></li>
+    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

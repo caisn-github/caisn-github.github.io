@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1120_2024/1120_2024%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1120_2024/1120_2024%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,8 +383,259 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="1120-软件测试-mysql规划">
+<a class="header-anchor" href="#1120-%e8%bd%af%e4%bb%b6%e6%b5%8b%e8%af%95-mysql%e8%a7%84%e5%88%92"></a>
+1120 软件测试-mysql规划:
+</h1><h2 id="测试用例分类">
+<a class="header-anchor" href="#%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%e5%88%86%e7%b1%bb"></a>
+测试用例分类:
+</h2><p><strong>功能测试</strong> : 主要测试软件的功能是否符合要求，如登录、注册、查看、修改、删除等功能。</p>
+<pre tabindex="0"><code>测试语句:
+1.登陆语句:
+  mysql -u username -p password
+2.创建数据库和表
+  create database testDB;
+3.创建表格:
+  CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );  
+4.插入数据:
+  INSERT INTO users (id, username, email, created_at) VALUES (1, &#39;casinan&#39;, &#39;caisn7049@gmail.com&#39;, &#39;2021-01-2&#39;);
+  INSERT INTO users (id, username, email, created_at) VALUES (&#39;shac&#39;, &#39;test@testem.com&#39;,&#39;2023-01-01&#39;);
+  INSERT INTO users (id, username, email, created_at) VALUES (&#39;shac&#39;, &#39;test@testem.com&#39;,&#39;2023-01-01&#39;);
+5.查询数据:
+  SELECT * FROM users;
+  SELECT username, email FROM users WHERE id = 1;
+6.修改数据:
+  UPDATE users SET email = &#39;scai1364@gmail.com&#39; WHERE id = 1;
+7.删除数据:
+  DELETE FROM users WHERE id = 1;
+8.添加索引:
+  CREATE INDEX idx_email ON users (email);
+9.删除索引:
+  DROP INDEX idx_email ON users;
+10.使用聚合函数:
+  SELECT COUNT(*) as user_count FROM users;
+  SELECT AVG(length(username)) AS avg_username_length FROM users;
+11.分组查询:
+  SELECT created_at, COUNT(*) AS count FROM users GROUP BY created_at;
+12.连接查询:
+  SELECT u1.id, u1.username, u2.email FROM users u1 INNER JOIN users u2 ON u1.id = u2.id;
+13.事务:
+  START TRANSACTION;
+  UPDATE users SET email = &#39;a18218061816@gmail.com&#39; WHERE id = 1;
+  ROLLBACK;  -- 如果出现问题, 回滚
+  SELECT * FROM users where id=1
+  COMMIT;    -- 如果一切正常, 则提交事务
+  SELECT * FROM users where id=1;
+14.使用存储过程和函数
+  CREATE PROCEDURE GetUserCount()
+BEGIN
+    SELECT COUNT(*) AS total_users FROM users;
+END;
+CALL GetUserCount();
+15.使用视图:
+  CREATE VIEW user_view AS SELECT id, username, email FROM users;
+16.使用触发器:
+  CREATE TRIGGER user_insert_trigger AFTER INSERT ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO user_view (id, username, email) VALUES (NEW.id, NEW.username, NEW.email);
+END;
 
+   INSERT INRO users (id, username, email) VALUES (31, &#39;casinan&#39;, &#39;caisn7049@gmail.com&#39;);
+   SELECT * FROM user_view;
+17.使用mysql的内置函数:
+数学函数:
+   SELECT ABS(-10) as absolute_value;
+   SELECT CEIL(1.5) as ceiling_value;
+   SELECT FLOOR(1.5) as floor_value;
+   SELECT ROUND(1.5) as rounding_value;
+   SELECT TRUNCATE(1.5) as truncating_value;
+   日期函数:
+   SELECT CURDATE() as current_date;
+   SELECT CURTIME() as current_time;
+   SELECT NOW() as current_datetime;
+   SELECT DATE_FORMAT(&#39;2021-01-01&#39;, &#39;%Y-%m-%d&#39;) as formatted_date;
+   字符串函数:
+   SELECT CONCAT(&#39;hello&#39;, &#39;world&#39;) as concatenated_string;
+   SELECT SUBSTRING(&#39;hello world&#39;, 6) as substring_value;
+   SELECT REPLACE(&#39;hello world&#39;, &#39;l&#39;, &#39;z&#39;) as replaced_string;
+   SELECT MD5(&#39;hello world&#39;) as md5_value;
+   SELECT SHA1(&#39;hello world&#39;) as sha1_value;
+   SELECT LEFT(&#39;hello world&#39;, 5) as left_string;
+   SELECT RIGHT(&#39;hello world&#39;, 5) as right_string;
+   SELECT LENGTH(&#39;hello world&#39;) as length_value;
+   SELECT UPPER(&#39;hello world&#39;) as uppercase_string;
+   SELECT LOWER(&#39;HELLO WORLD&#39;) as lowercase_string;
+   条件函数:
+   SELECT IF(1&gt;2, &#39;true&#39;, &#39;false&#39;) as condition_value;
+   SELECT IFNULL(NULL, &#39;default_value&#39;) as null_value;
+   SELECT COALESCE(NULL, &#39;default_value&#39;) as coalesce_value;
+   聚合函数:
+   SELECT COUNT(*) as count_value;
+   SELECT SUM(1) as sum_value;
+   SELECT AVG(1) as avg_value;
+   SELECT MAX(1) as max_value;
+   SELECT MIN(1) as min_value;
+   位函数:
+   SELECT BIT_AND(1, 2) as bit_and_value;
+   SELECT BIT_OR(1, 2) as bit_or_value;
+   SELECT BIT_XOR(1, 2) as bit_xor_value;
+   SELECT BIT_COUNT(1) as bit_count_value;
+   随机函数:
+   SELECT RAND() as random_value;
+   SELECT RAND(10) as random_value;
+   SELECT RANDINT(1, 10) as random_int_value;
+   系统函数:
+   SELECT USER() as user_name;
+   SELECT DATABASE() as database_name;
+   SELECT VERSION() as version_value;
+   SELECT SCHEMA() as schema_name;
+   SELECT CONNECTION_ID() as connection_id;
+   SELECT SYSTEM_USER() as system_user_name;
+   SELECT CURRENT_USER() as current_user_name;
+   SELECT SESSION_USER() as session_user_name;
+   SELECT LAST_INSERT_ID() as last_insert_id_value;
+   SELECT GET_LOCK(&#39;test_lock&#39;, 10) as lock_status;
+   SELECT RELEASE_LOCK(&#39;test_lock&#39;) as lock_status;
+   SELECT MASTER_POS_WAIT(10) as master_position;
+   SELECT INET_ATON(&#39;192.168.1.1&#39;) as ip_address_value;
+   SELECT INET_NTOA(3232235777) as ip_address_value;
+   SELECT CONVERT(&#39;2021-01-01&#39;, DATE) as date_value;
+   SELECT CONVERT(&#39;2021-01-01 12:00:00&#39;, DATETIME) as datetime_value;
+   SELECT CONVERT(&#39;12:00:00&#39;, TIME) as time_value;
+   SELECT CONVERT(&#39;hello&#39;, CHAR) as char_value;
+   SELECT CONVERT(&#39;hello&#39;, VARCHAR) as varchar_value;
+   SELECT CONVERT(&#39;hello&#39;, TEXT) as text_value;
+   SELECT CONVERT(123, INT) as int_value;
+   SELECT CONVERT(123, DECIMAL) as decimal_value;
+   SELECT CONVERT(123, FLOAT) as float_value;
+   SELECT CONVERT(123, DOUBLE) as double_value;
+   SELECT CONVERT(123, BOOLEAN) as boolean_value;
+   SELECT CONVERT(123, BINARY) as binary_value;
+   SELECT CONVERT(123, VARBINARY) as varbinary_value;
+   SELECT CONVERT(123, TINYINT) as tinyint_value;
+   SELECT CONVERT(123, SMALLINT) as smallint_value;
+   SELECT CONVERT(123, MEDIUMINT) as mediumint_value;
+   SELECT CONVERT(123, INT) as int_value;
+   SELECT CONVERT(123, BIGINT) as bigint_value;
+   SELECT CONVERT(123, DECIMAL) as decimal_value;
+   SELECT CONVERT(123, DECIMAL(10,2)) as decimal_value;
+   SELECT CONVERT(123, NUMERIC) as numeric_value;
+   SELECT CONVERT(123, DATE) as date_value;
+   SELECT CONVERT(123, DATETIME) as datetime_value;
+   SELECT CONVERT(123, TIME) as time_value;
+   SELECT CONVERT(123, YEAR) as year_value;
+   SELECT CONVERT(123, CHAR) as char_value;
+   JSON函数:
+   SET @json = &#39;{&#34;name&#34;: &#34;John&#34;, &#34;age&#34;: 30}&#39;;
+   SELECT JSON_EXTRACT(@json, &#39;$.name&#39;) AS name;  -- 返回 &#39;John&#39;
+   SELECTSELECT JSON_UNQUOTE(JSON_EXTRACT(@json, &#39;$.age&#39;)) AS age;  -- 返回 &#39;30&#39;
+</code></pre><p><strong>压力测试</strong> : 主要测试软件在高并发、高负载下的表现，如并发量、响应时间、数据库连接数等。
+<strong>兼容性测试</strong> : 主要测试软件在不同操作系统、不同浏览器、不同版本的浏览器下是否能正常运行。
+<strong>安全测试</strong> : 主要测试软件在不同攻击方式下是否能正常运行，如SQL注入、XSS攻击、CSRF攻击等。
+<strong>单元测试</strong>: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+使用测试框架如Junit、Mocha、PHPUnit等进行单元测试。</p>
+<pre tabindex="0"><code>首先确保自己已经安装了python库:
+pip install mysql-connector-python
+pip install pymysql
+创建测试:
+</code></pre><pre tabindex="0"><code>import unittest
+import mysql.connector
+from mysql.connector import Error
+
+class TestMySQLDatabase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        # 连接到 MySQL 数据库
+        cls.connection = mysql.connector.connect(
+            host=&#34;localhost&#34;,
+            user=&#34;caisn&#34;,
+            password=&#34;csn&#34;,
+            database=&#34;test_db&#34;
+        )
+        cls.cursor = cls.connection.cursor()
+
+        # 创建测试表
+        cls.cursor.execute(&#34;CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), email VARCHAR(255))&#34;)
+
+    def setUp(self):
+        # 在每个测试之前清理数据
+        self.cursor.execute(&#34;DELETE FROM users&#34;)
+
+    def test_insert_user(self):
+        # 插入用户
+        self.cursor.execute(&#34;INSERT INTO users (username, email) VALUES (%s, %s)&#34;, (&#39;user_caisn&#39;, &#39;caisn7049@gmail.com&#39;))
+        self.connection.commit()
+
+        # 验证插入
+        self.cursor.execute(&#34;SELECT * FROM users WHERE username = %s&#34;, (&#39;user_caisn&#39;,))
+        result = self.cursor.fetchone()
+
+        self.assertIsNotNone(result)  # 确保结果不为 None
+        self.assertEqual(result[1], &#39;user_caisn&#39;)  # 验证用户名
+        self.assertEqual(result[2], &#39;caisn7049@gmail.com&#39;)  # 验证邮箱
+
+    def test_multiple_insertions(self):
+        # 批量插入用户
+        users = [
+            (&#39;user1&#39;, &#39;user1@example.com&#39;),
+            (&#39;user2&#39;, &#39;user2@example.com&#39;),
+            (&#39;user3&#39;, &#39;user3@example.com&#39;)
+        ]
+        
+        self.cursor.executemany(&#34;INSERT INTO users (username, email) VALUES (%s, %s)&#34;, users)
+        self.connection.commit()
+
+        # 验证插入
+        self.cursor.execute(&#34;SELECT COUNT(*) FROM users&#34;)
+        result = self.cursor.fetchone()
+
+        self.assertEqual(result[0], 3)  # 确保插入了3个用户
+
+    @classmethod
+    def tearDownClass(cls):
+        # 清理测试表
+        cls.cursor.execute(&#34;DROP TABLE IF EXISTS users&#34;)
+        cls.connection.close()
+
+if __name__ == &#39;__main__&#39;:
+    unittest.main()
+</code></pre><p><strong>回归测试</strong>: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+<strong>集成测试</strong>: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+<strong>负载测试</strong>: 主要测试软件在高负载下的表现，如并发量、响应时间、数据库连接数等。
+<strong>自动化测试</strong>: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+<strong>手动测试</strong>: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+<strong>数据完整性测试</strong>: 主要测试软件的数据是否符合要求，如数据完整性、数据一致性、数据准确性等。
+<strong>性能测试</strong>: 主要测试软件在不同负载下表现，如并发量、响应时间、数据库连接数等。</p>
+<pre tabindex="0"><code>数据库性能测试是一种评估数据库在特定条件下的响应时间, 数据处理能力和资源使用情况的过程.通过性能测试, 可以识别潜在的瓶颈, 优化数据库性能, 确保应用程序能够承载预期的负载, 以下是进行数据库性能测试的一些步骤和方法:
+1. 准备测试: 响应时间, 吞吐量, 并发用户数, 系统资源使用情况
+2. 准备测试环境:
+
+3.选择性能测试工具:
+  这里预备选取: 1)SysBench-是一个多线程的性能测试工具, 专门针对MYSQL数据库的基准测试. 特点: 可以测试CPU, 内存, 文件I/O和数据库性能, 包括OLPTP性能基准测试
+   2) MYSQL Benchmarks: 是MYSQL自带的基准测试工具, 可以提快速测试SQL查询的行呢个数, 并发用户数, 响应时间等. 特点: 简单易用, 适合小型数据库测试.
+   3) MYSQL Enterprise Monitor:
+    是MYSQL 提供的商业工具, 用于监控和优化MYSQL数据库的性能, 特点: 提供实时监控, 查询分析和告警系统, 适合企业级应用
+
+4.设计测试用例:
+根据目标设计具体的测试用例,包括: 
+单个查询性能测试(测试单独SQL查询性能)
+并发测试,
+压力测试,
+负载测试.
+基准测试,
+5.执行测试: 运行测试用例, 收集性能数据, 分析结果, 评估性能瓶颈.
+6.分析结果: 分析测试结果, 确定瓶颈, 优化方案, 再次执行测试.
+
+
+**冒烟测试**: 主要测试软件的各个模块是否能正常运行，如数据库连接、业务逻辑、界面显示等。
+</code></pre>
       
     </div>
     <footer class="article-footer">
@@ -426,7 +677,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1120_2024/1120_2024%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%93%8D%E9%A2%84%E5%A4%87/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +695,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1105_2024/1105_%E8%AE%B0%E5%BD%95/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +737,11 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测试用例分类">测试用例分类:</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +1035,11 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测试用例分类">测试用例分类:</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1020_2024/1020_2024_github%E7%9A%84ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1020_2024/1020_2024_github%E7%9A%84ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,54 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <p>#github连接 以及 待解决问题</p>
+<table>
+  <thead>
+      <tr>
+          <th>任务</th>
+          <th>完成进度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ubuntu_py 的github连接</td>
+          <td>未完成, 遇到问题</td>
+      </tr>
+      <tr>
+          <td>ubuntu_server 网桥模式的网桥开启</td>
+          <td>改成NAT模式后重新设置ip和gateway正常连网</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="github-的ssh免密码登录设置--ssh--t-报错-connecton-closed">
+<a class="header-anchor" href="#github-%e7%9a%84ssh%e5%85%8d%e5%af%86%e7%a0%81%e7%99%bb%e5%bd%95%e8%ae%be%e7%bd%ae--ssh--t-%e6%8a%a5%e9%94%99-connecton-closed"></a>
+github 的ssh免密码登录设置 &amp;&amp; ssh -T 报错: connecton closed
+</h2><pre><code>背景: 准备配置ubuntu24的ssh免密登录
+</code></pre>
+<h2 id="添加ssh-key步骤">
+<a class="header-anchor" href="#%e6%b7%bb%e5%8a%a0ssh-key%e6%ad%a5%e9%aa%a4"></a>
+添加ssh-key步骤:
+</h2><p>ubuntu terminal 输入:</p>
+<pre tabindex="0"><code>  sshkey-gen
+  [然后直接回车,连续回车就行]
+
+  cat ~/.ssh/*.pub
+  查看本次生成的公钥
+</code></pre><p>复制到github账户下:</p>
+<p><img src="image-2.png" alt="alt text"></p>
+<p>点击添加New SSH key自行设置名字, 另外expire time最好设置为永久,以免失效(如果是自己的电脑的话)</p>
+<h2 id="ssh--t-gitgithubcom-报错-connection-cloosed">
+<a class="header-anchor" href="#ssh--t-gitgithubcom-%e6%8a%a5%e9%94%99-connection-cloosed"></a>
+ssh -T <a href="mailto:git@github.com">git@github.com</a> 报错: connection cloosed
+</h2><p><img src="image-3.png" alt="
+">
+我寻思着以上步骤也没啥问题啊,网络也是正常的</p>
+<p>好的,这个问题后决定到另外一个ubuntu去尝试, 结果发现之前设置的网桥模式出错了.似乎主机或者虚拟机的网桥没有开启, 导致ubuntu_server机器出错.</p>
+<h2 id="ubuntu-server又又又连不上网">
+<a class="header-anchor" href="#ubuntu-server%e5%8f%88%e5%8f%88%e5%8f%88%e8%bf%9e%e4%b8%8d%e4%b8%8a%e7%bd%91"></a>
+ubuntu server又又又连不上网
+</h2><p>感觉物理机的网桥模式可能有问题, 在此不深究了, 直接换成NAT模式去做了
+[ubuntu_server 换成nat 模式, 修改/etc/netplan文件成默认, 参照1019_2024ubuntu配置.md文档获取网关地址, 重新设置 NAT模式下的ip和gateway. &ndash; 执行 netplan applay]</p>
 
       
     </div>
@@ -426,7 +473,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1020_2024/1020_2024_remote%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E9%85%8D%E7%BD%AE/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +491,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +533,14 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-的ssh免密码登录设置--ssh--t-报错-connecton-closed">github 的ssh免密码登录设置 &amp;&amp; ssh -T 报错: connecton closed</a></li>
+    <li><a href="#添加ssh-key步骤">添加ssh-key步骤:</a></li>
+    <li><a href="#ssh--t-gitgithubcom-报错-connection-cloosed">ssh -T <a href="mailto:git@github.com">git@github.com</a> 报错: connection cloosed</a></li>
+    <li><a href="#ubuntu-server又又又连不上网">ubuntu server又又又连不上网</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +834,14 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-的ssh免密码登录设置--ssh--t-报错-connecton-closed">github 的ssh免密码登录设置 &amp;&amp; ssh -T 报错: connecton closed</a></li>
+    <li><a href="#添加ssh-key步骤">添加ssh-key步骤:</a></li>
+    <li><a href="#ssh--t-gitgithubcom-报错-connection-cloosed">ssh -T <a href="mailto:git@github.com">git@github.com</a> 报错: connection cloosed</a></li>
+    <li><a href="#ubuntu-server又又又连不上网">ubuntu server又又又连不上网</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1126_2024%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/1126_2024_%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1126_2024%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/1126_2024_%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,8 +383,90 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="1126_2024作业完成">
+<a class="header-anchor" href="#1126_2024%e4%bd%9c%e4%b8%9a%e5%ae%8c%e6%88%90"></a>
+1126_2024作业完成
+</h1><h2 id="今日规划">
+<a class="header-anchor" href="#%e4%bb%8a%e6%97%a5%e8%a7%84%e5%88%92"></a>
+今日规划:
+</h2><table>
+  <thead>
+      <tr>
+          <th>任务</th>
+          <th>完成情况</th>
+          <th>其他</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>机器学习python</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>软件测试ppt制作</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>软件测试视频录制</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="任务一-机器学习python">
+<a class="header-anchor" href="#%e4%bb%bb%e5%8a%a1%e4%b8%80-%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0python"></a>
+任务一, 机器学习python
+</h2><ol>
+<li>创建python venv 虚拟环境 :
+<code>python -m venv $path/ </code>
+这里的path: 比如: /home/caisn/machine/ , 那么最终被激活的名字叫machine。</li>
+<li>fisher部分: 参考教程: <a href="https://blog.csdn.net/qq_42585108/article/details/105918590">https://blog.csdn.net/qq_42585108/article/details/105918590</a>
+&mdash;已经完成</li>
+</ol>
+<pre tabindex="0"><code></code></pre><p>3.最小二乘法部分: 参考教程:</p>
+<pre tabindex="0"><code>import numpy as np
+import matplotlib.pyplot as plt
 
+# 1. 生成二分类数据
+def generate_data(n_samples=100):
+    np.random.seed(42)
+    X_class1 = np.random.multivariate_normal(mean=[2, 2], cov=[[1, 0], [0, 1]], size=n_samples//2)
+    X_class2 = np.random.multivariate_normal(mean=[-2, -2], cov=[[1, 0], [0, 1]], size=n_samples//2)
+    X = np.vstack((X_class1, X_class2))
+    y = np.hstack((np.ones(n_samples//2), np.zeros(n_samples//2)))  # 类别1为1，类别2为0
+    return X, y
+
+# 2. 最小二乘法分类器
+class LeastSquaresClassifier:
+    def __init__(self):
+        self.weights = None
+    
+    def fit(self, X, y):
+        # 增加偏置项
+        X = np.hstack((X, np.ones((X.shape[0], 1))))  # 在X中增加一列全为1
+        # 最小二乘法解：w = (X^T X)^(-1) X^T y
+        self.weights = np.linalg.inv(X.T @ X) @ X.T @ y
+    
+    def predict(self, X):
+        X = np.hstack((X, np.ones((X.shape[0], 1))))  # 增加偏置项
+        predictions = X @ self.weights
+        return (predictions &gt;= 0.5).astype(int)  # 根据阈值0.5判断类别
+
+# 3. 可视化分类结果
+def plot_decision_boundary(X, y, model):
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1),
+                         np.arange(y_min, y_max, 0.1))
+    grid = np.c_[xx.ravel(), yy.ravel()]
+    predictions = model.predict(grid).reshape(xx.shape)
+    plt.contourf(xx, yy, predictions, alpha=0.6, cmap=plt.cm.Paired)
+
+a = (np.mean(x[:,0] * x[:,1]) - np.mean(x[:,0]) * np.mean(x[:,1])) / (np.mean(x[:,0]*x[:,0]) - np.mean(x[:,0]) * np.mean(x[:,0]))
+b = np.mean(x[:,1]) - a * np.mean(x[:,0])
+</code></pre>
       
     </div>
     <footer class="article-footer">
@@ -426,7 +508,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/nov_2024/1127_2024/%E4%BB%8A%E6%97%A5%E8%A7%84%E5%88%92%E4%BB%A5%E5%8F%8A%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +526,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1125_2024/zotera%E4%BD%BF%E7%94%A8/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +568,12 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日规划">今日规划:</a></li>
+    <li><a href="#任务一-机器学习python">任务一, 机器学习python</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +867,12 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日规划">今日规划:</a></li>
+    <li><a href="#任务一-机器学习python">任务一, 机器学习python</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1021_2024/1020_2024_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1021_2024/1020_2024_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,39 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="基于dram-nvm异构内存的操作系统页面级数据迁移机制研究-author-邵若忱">
+<a class="header-anchor" href="#%e5%9f%ba%e4%ba%8edram-nvm%e5%bc%82%e6%9e%84%e5%86%85%e5%ad%98%e7%9a%84%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e9%a1%b5%e9%9d%a2%e7%ba%a7%e6%95%b0%e6%8d%ae%e8%bf%81%e7%a7%bb%e6%9c%ba%e5%88%b6%e7%a0%94%e7%a9%b6-author-%e9%82%b5%e8%8b%a5%e5%bf%b1"></a>
+基于DRAM-NVM异构内存的操作系统页面级数据迁移机制研究 author: 邵若忱
+</h1><h2 id="摘要部分">
+<a class="header-anchor" href="#%e6%91%98%e8%a6%81%e9%83%a8%e5%88%86"></a>
+摘要部分:
+</h2><ol>
+<li>计算密集型计算技术发展, 内存不足, DRAM-NVM异构内存提供了解决方案</li>
+<li>异构内存之间读写性能差异较大, 操作系统无法根据热度进行合理调配, 导致性能不佳</li>
+<li>本文设计了基于B+树的页面访问历史采样工具 &ndash; 解决热度问题</li>
+<li>本文设计了基于DRAN-NVM的异构内存数据迁移机制 &ndash; 解决异构内存问题</li>
+</ol>
+<h2 id="修改论文用到的网站">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e8%ae%ba%e6%96%87%e7%94%a8%e5%88%b0%e7%9a%84%e7%bd%91%e7%ab%99"></a>
+修改论文用到的网站
+</h2><p><a href="https://elixir.bootlin.com/linux/v6.11.4/source/include/linux/mm_types.h#L72">https://elixir.bootlin.com/linux/v6.11.4/source/include/linux/mm_types.h#L72</a></p>
+<h2 id="论文主要组成部分">
+<a class="header-anchor" href="#%e8%ae%ba%e6%96%87%e4%b8%bb%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86"></a>
+论文主要组成部分
+</h2><ol>
+<li>页面热度采样</li>
+<li>页面热度测评</li>
+<li>内存迁移</li>
+</ol>
+<h3 id="页面热度采样">
+<a class="header-anchor" href="#%e9%a1%b5%e9%9d%a2%e7%83%ad%e5%ba%a6%e9%87%87%e6%a0%b7"></a>
+页面热度采样
+</h3><pre><code>分成3种采样方式
+1) 基于PMU事件的采样 : 
+   PMU事件: https://learn.microsoft.com/zh-cn/windows-hardware/test/wpt/recording-pmu-events
+   基于处理器的PMU组件进行硬件事件采样, 是用来获取应用程序运行
+2) 2)  
+</code></pre>
 
       
     </div>
@@ -426,7 +458,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1022_2024/1022_2024_%E8%A7%A3%E5%86%B3ssh-%E7%99%BB%E5%BD%95kex_exchange%E9%97%AE%E9%A2%98/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +476,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1020_2024/1020_2024_remote%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E9%85%8D%E7%BD%AE/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +518,17 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要部分">摘要部分:</a></li>
+    <li><a href="#修改论文用到的网站">修改论文用到的网站</a></li>
+    <li><a href="#论文主要组成部分">论文主要组成部分</a>
+      <ul>
+        <li><a href="#页面热度采样">页面热度采样</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +822,17 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要部分">摘要部分:</a></li>
+    <li><a href="#修改论文用到的网站">修改论文用到的网站</a></li>
+    <li><a href="#论文主要组成部分">论文主要组成部分</a>
+      <ul>
+        <li><a href="#页面热度采样">页面热度采样</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

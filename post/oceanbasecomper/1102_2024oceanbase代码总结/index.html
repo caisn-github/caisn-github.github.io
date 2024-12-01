@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/oceanbasecomper/1102_2024oceanbase%E4%BB%A3%E7%A0%81%E6%80%BB%E7%BB%93/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/oceanbasecomper/1102_2024oceanbase%E4%BB%A3%E7%A0%81%E6%80%BB%E7%BB%93/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,76 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="1102_2024oceanbase代码总结">
+<a class="header-anchor" href="#1102_2024oceanbase%e4%bb%a3%e7%a0%81%e6%80%bb%e7%bb%93"></a>
+1102_2024OceanBase代码总结
+</h1><table>
+  <thead>
+      <tr>
+          <th>项目</th>
+          <th>完成情况</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>环境搭建</td>
+          <td>已完成</td>
+      </tr>
+      <tr>
+          <td>时间类型添加 - 总结</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>删除表实现 -总结</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>更新表实现-总结</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>&ndash; 目前: 已修改41份文件, 更新2k代码, 排名174/1200
+<a href="https://github.com/caisn-github/miniob">https://github.com/caisn-github/miniob</a></p>
+<h2 id="1环境搭建----已总结">
+<a class="header-anchor" href="#1%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba----%e5%b7%b2%e6%80%bb%e7%bb%93"></a>
+1.环境搭建 &ndash; 已总结
+</h2><h2 id="2时间类型添加">
+<a class="header-anchor" href="#2%e6%97%b6%e9%97%b4%e7%b1%bb%e5%9e%8b%e6%b7%bb%e5%8a%a0"></a>
+2.时间类型添加
+</h2><p>主要流程:
+时间类型是数据库的几种基础类型中的一种(int, char, varchar, datetime, timestamp, date, time, year)等, 所以在实现的时候, 需要继承type类, 并做到</p>
+<ol>
+<li>
+<p>实现char-&gt;date类型的转化, date -&gt; char的转化(因为在用户输入的时候, 先识别到的是char类型, 落盘时候找到表中的元组), 所以需要实现char -&gt; date</p>
+</li>
+<li>
+<p>新增src/observer/common/type/date_type.cpp文件, 在char-&gt;date之后判断是否是正常时间类型</p>
+</li>
+</ol>
+<h2 id="3删除表实现">
+<a class="header-anchor" href="#3%e5%88%a0%e9%99%a4%e8%a1%a8%e5%ae%9e%e7%8e%b0"></a>
+3.删除表实现
+</h2><p>主要流程:
+删除表的操作实现比较简单:</p>
+<ol>
+<li>删除表实际在磁盘中的存储位置, 找到表存储的数据库地址, 并删除对应的&quot;del_tbale_name&quot;.data和&quot;del_table_name&quot;.table文件</li>
+<li>删除内存缓存中的表信息. miniOB的缓存有一个统一的管理handle, 调用该Memeory_handle的对应drop函数</li>
+</ol>
+<h2 id="4更新表实现">
+<a class="header-anchor" href="#4%e6%9b%b4%e6%96%b0%e8%a1%a8%e5%ae%9e%e7%8e%b0"></a>
+4.更新表实现
+</h2><p>主要流程:
+由于miniOB中没有update关键词, 所以从解析开始添加</p>
+<ol>
+<li>添加UPDATE关键词, 在解析时候传入updateSqlNode中的table name, 更新的attribute_name, attribute_value, update的过滤where condition条件</li>
+<li>生成UPDATE的logical plan(逻辑算子)</li>
+<li>生成UPDATE的physical plan(物理算子)</li>
+<li>其中物理算子的操作: 通过condition找到需要更新的record, 对于每条记录进行更新操作:
+确认attribute_name与元组是否一致;
+替换attribute_value在record中的值
+我的实现是使用了函数中自带的delete_record+insert_record来实现更新操作. 不确定这样的实现是否冗余.</li>
+</ol>
 
       
     </div>
@@ -414,7 +483,9 @@
     data-aos="fade-up"
   >
     
-      <div class="article-nav-link-wrap article-nav-link-left">
+
+    
+      <div class="article-nav-link-wrap article-nav-link-right">
         
           
           
@@ -426,34 +497,11 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            (no title)
-          
-        </h3>
-      </div>
-    
-
-    
-      <div class="article-nav-link-wrap article-nav-link-right">
-        
-          
-          
-            <img
-              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
-              data-sizes="auto"
-              alt="csn world"
-              class="lazyload"
-            />
-          
-        
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/oceanbasecomper/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +534,14 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1环境搭建----已总结">1.环境搭建 &ndash; 已总结</a></li>
+    <li><a href="#2时间类型添加">2.时间类型添加</a></li>
+    <li><a href="#3删除表实现">3.删除表实现</a></li>
+    <li><a href="#4更新表实现">4.更新表实现</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +835,14 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1环境搭建----已总结">1.环境搭建 &ndash; 已总结</a></li>
+    <li><a href="#2时间类型添加">2.时间类型添加</a></li>
+    <li><a href="#3删除表实现">3.删除表实现</a></li>
+    <li><a href="#4更新表实现">4.更新表实现</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>

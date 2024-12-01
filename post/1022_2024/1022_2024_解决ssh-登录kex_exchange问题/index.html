@@ -19,7 +19,7 @@
   
 
 <title>
-  Hello World | D-Sketon
+   | D-Sketon
 </title>
 <meta
   name="description"
@@ -106,12 +106,12 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | D-Sketon" />
+  <meta property="og:title" content=" | D-Sketon" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://example.org/post/hello/" />
+  <meta property="og:url" content="https://example.org/post/1022_2024/1022_2024_%E8%A7%A3%E5%86%B3ssh-%E7%99%BB%E5%BD%95kex_exchange%E9%97%AE%E9%A2%98/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -121,8 +121,8 @@
     content="/"
   />
   <meta property="article:author" content="D-Sketon" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" />
   
   
   <meta name="twitter:card" content="summary" />
@@ -316,7 +316,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+    <img fetchpriority="high" src="/images/banner.webp" alt="">
   
 
   <div id="header-outer">
@@ -329,7 +329,7 @@
   
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a>
         
       
@@ -360,15 +360,15 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://example.org/post/hello/"
+    href="https://example.org/post/1022_2024/1022_2024_%E8%A7%A3%E5%86%B3ssh-%E7%99%BB%E5%BD%95kex_exchange%E9%97%AE%E9%A2%98/"
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </a>
 </div>
@@ -383,7 +383,106 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>💘 博麗 霊夢 💘</p>
+        <h1 id="ssh登录-kex_excahnge-以及-connetcion-refused-报错--bash-脚本解决">
+<a class="header-anchor" href="#ssh%e7%99%bb%e5%bd%95-kex_excahnge-%e4%bb%a5%e5%8f%8a-connetcion-refused-%e6%8a%a5%e9%94%99--bash-%e8%84%9a%e6%9c%ac%e8%a7%a3%e5%86%b3"></a>
+ssh登录 kex_excahnge 以及 connetcion refused 报错 + bash 脚本解决
+</h1><table>
+  <thead>
+      <tr>
+          <th>任务</th>
+          <th>完成进度</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ssh -T <a href="mailto:git@github.com">git@github.com</a>报错</td>
+          <td>√</td>
+          <td>proxy代理错误</td>
+      </tr>
+      <tr>
+          <td>物理机 ssh ubuntu@ip 报错</td>
+          <td>√</td>
+          <td>* 依赖项缺失: ssh.socket  <!-- raw HTML omitted -->*系统没有启动: systemctl enable ssh ; service ssh restart</td>
+      </tr>
+      <tr>
+          <td>ssh -T <a href="mailto:git@github.com">git@github.com</a> 解决方法脚本整理</td>
+          <td>√</td>
+          <td>已经上传 <a href="mailto:git@github.com">git@github.com</a>:caisn-github/sn_scrpts.git</td>
+      </tr>
+      <tr>
+          <td>整理一份裸机添加自己github账户以及完成ssh的脚本</td>
+          <td>x</td>
+          <td>下次任务</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="问题描述">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0"></a>
+问题描述
+</h2><p>出现了两个相似的问题, 问题是这样:</p>
+<ol>
+<li>在虚拟机上登录ssh -T <a href="mailto:git@github.com">git@github.com</a>报错
+<img src="image-7.png" alt="alt text"></li>
+<li>在windows物理机上, 想要ssh 登录物理机上的ubuntu报错. 虚拟机ubuntu_server报错&gt; connection refused. 而且这台虚拟机之前是可以登录上的???why
+其中问题2 的大概情况:
+<img src="image.png" alt="alt text"></li>
+</ol>
+<h2 id="解决方法">
+<a class="header-anchor" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95"></a>
+解决方法
+</h2><p><strong>问题2:</strong> 之前是可以ssh登录上的, 但是现在不行了?????
+    可能是22号端口被占用了
+     netstat -tln | grep 22 [但是没有找到这个端口号]
+在网上看了下22号端口:</p>
+<pre tabindex="0"><code> 22号端口: 是ssh连接的默认端口. 正常情况下22号端口是要打开的
+</code></pre><p>尝试打开22号端口:
+<img src="image-2.png" alt="alt text">
+出现新的报错: find a reseaon:
+检查ssh 依赖项:</p>
+<pre tabindex="0"><code>  systemctl list-dependencies ssh.service
+</code></pre><p><img src="image-6.png" alt="alt text">
+发现ssh.socket缺失
+于是重装open-ssh service</p>
+<pre tabindex="0"><code>sudo apt-get remove openssh-server openssh-client --purge &amp;&amp; sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean &amp;&amp; sudo apt-get update
+
+sudo apt-get install openssh-server openssh-client
+</code></pre><p><img src="image-4.png" alt="alt text">
+重装了之后 ssh socket可以正常跑起来了</p>
+<pre tabindex="0"><code>启动服务以及运行:
+  systemctl enable ssh
+  service ssh restart 
+</code></pre><p><strong>问题2.2</strong> 物理机连接报错 - 终于是新的错误了 &lt;.T 3
+<img src="image-5.png" alt="alt text"></p>
+<p>这个解决起来比较简单,
+<!-- raw HTML omitted -->重新清理一下本地的缓存文件 : ssh-keygen -R 192.168.14.199
+重新连接服务器: ssh <a href="mailto:caisn@192.168.14.199">caisn@192.168.14.199</a></p>
+<!-- raw HTML omitted -->
+<p><strong>问题1:</strong> 可能是代理服务器没有设置导致的错误?
+参考链接: <a href="https://juejin.cn/post/7129443602379309086">https://juejin.cn/post/7129443602379309086</a></p>
+<p>在 ubuntu的 ~/.ssh/config文件和windows的users/caisn/.ssh.config文件中添加以下内容并重新测试
+<img src="image-8.png" alt="alt text"></p>
+<p>执行git clone
+<img src="image-9.png" alt="alt text">
+成功!</p>
+<h2 id="脚本bash-scripts解决">
+<a class="header-anchor" href="#%e8%84%9a%e6%9c%acbash-scripts%e8%a7%a3%e5%86%b3"></a>
+脚本bash scripts解决
+</h2><p>脚本已经推到远程仓库, 之后从
+下载即可</p>
+<pre tabindex="0"><code>#!bin/bash
+if [ -f &#34;~/.ssh/config&#34; ] ; then
+        echo &#34;file exists, do next&#34;
+else
+        touch ~/.ssh/config
+        echo &#34;touch config in ~/.ssh/&#34;
+fi
+echo &#34;Host github.com&#34; &gt;&gt; ~/.ssh/config
+echo &#34;     User caisn-github&#34; &gt;&gt; ~/.ssh/config
+echo &#34;     Hostname ssh.github.com&#34; &gt;&gt; ~/.ssh/config
+echo &#34;     Port 443&#34; &gt;&gt; ~/.ssh/config
+tail ~/.ssh/config
+</code></pre><p>执行 <strong><!-- raw HTML omitted -->. github-ssh.sh <!-- raw HTML omitted --></strong> 添加</p>
 
       
     </div>
@@ -426,7 +525,7 @@
             />
           
         
-        <a href="https://example.org/post/1019_2024/1019_2024_ubuntu%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"></a>
+        <a href="https://example.org/post/1024_2024/remote%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -444,16 +543,16 @@
             <img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="csn world"
+              alt=""
               class="lazyload"
             />
           
         
-        <a href="https://example.org/post/test2/test/"></a>
+        <a href="https://example.org/post/1021_2024/1020_2024_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
-            csn world
+            (no title)
           
         </h3>
       </div>
@@ -486,7 +585,13 @@
           <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#解决方法">解决方法</a></li>
+    <li><a href="#脚本bash-scripts解决">脚本bash scripts解决</a></li>
+  </ul>
+</nav>
   </div>
 </div>
         </div>
@@ -780,7 +885,13 @@
         <div class="sidebar-toc">
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#解决方法">解决方法</a></li>
+    <li><a href="#脚本bash-scripts解决">脚本bash scripts解决</a></li>
+  </ul>
+</nav>
   </div>
 </div>
       </div>
