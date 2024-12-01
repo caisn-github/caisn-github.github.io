@@ -2,3 +2,9 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'hugo-theme-reimu'
+relativeURLs = true
+
+[params]
+  author = "i caisn  "
+  description = "This is my awesome Hugo site!"
+  relativeURLs = true
