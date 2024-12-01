@@ -22,7 +22,7 @@ jobs:
           extended: true
               
       - name: Build site
-        run: hugo build
+        run: hugo 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
