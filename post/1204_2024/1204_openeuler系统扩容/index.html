@@ -111,7 +111,7 @@
     property="og:description"
     content="This is my awesome Hugo site!"
   />
-  <meta property="og:url" content="https://caisn-github.github.io/post/1026_2024/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/" />
+  <meta property="og:url" content="https://caisn-github.github.io/post/1204_2024/1204_openeuler%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%AE%B9/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -360,7 +360,7 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://caisn-github.github.io/post/1026_2024/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"
+    href="https://caisn-github.github.io/post/1204_2024/1204_openeuler%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%AE%B9/"
     class="article-date-link"
     data-aos="zoom-in"
   >
@@ -383,101 +383,70 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="搭建oceanbase开发环境----编译--运行">
-<a class="header-anchor" href="#%e6%90%ad%e5%bb%baoceanbase%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83----%e7%bc%96%e8%af%91--%e8%bf%90%e8%a1%8c"></a>
-搭建OceanBase开发环境 &ndash; 编译 &amp; 运行
-</h2><p>[已报名参加大赛]</p>
-<p><!-- raw HTML omitted -->参照教程:<!-- raw HTML omitted -->
-<a href="https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2">https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2</a></p>
-<p><a href="https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md">https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md</a></p>
-<h2 id="环境搭建">
-<a class="header-anchor" href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba"></a>
-环境搭建
-</h2><pre><code> 已经安装的工具如下: 
-</code></pre>
-<pre tabindex="0"><code>--- 以下使用apt install即可安装, 安装之前先更行apt: sudo apt update ; sudo apt upgrade
-casinan@caisinan:~/Desktop$ cmake --version
-cmake version 3.28.3
-
-casinan@caisinan:~/Desktop$ make --version
-GNU Make 4.3
-
-casinan@caisinan:~/Desktop$ g++ --version
-g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-
-casinan@caisinan:~/Desktop$ gcc --version
-gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-
-casinan@caisinan:~/Desktop$ sudo apt install googletest
-[sudo] password for casinan: 
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-googletest is already the newest version (1.14.0-1).
-0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
-</code></pre><p>其中libevent的安装方式如下:</p>
-<pre tabindex="0"><code>wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
-
-然后参考教程: https://blog.csdn.net/superhoner/article/details/112001995
-
-配置安装环境:
-cd libevent-2.1.11-stable 
-./configure --prefix=/usr
-
-测试是否安装成功:
-ls -al /usr/local/lib | grep libevent
-</code></pre><p>其中jsoncpp的安装方式如下:</p>
-<pre tabindex="0"><code>参考教程 : https://blog.csdn.net/qq_52201535/article/details/133581163
-
-安装:  
-sudo apt-get install libjsoncpp-dev
-sudo apt install libjson-c-dev
-
-检查是否安装成功:
-ls /usr/include/jsoncpp/json/
-ls /usr/include/json-c/
-
-*******如何使用***:
-#include &lt;jsoncpp/json/json.h&gt;
-#include &lt;json-c/json.h&gt;
-编译: [链接库]
-g++ -l jsoncpp
-g++ -l ljson-c
-</code></pre><p>flex安装: sudo apt-get install flex</p>
-<p>bison安装参考: <a href="https://blog.csdn.net/Mculover666/article/details/118934814">https://blog.csdn.net/Mculover666/article/details/118934814</a></p>
-<h2 id="尝试编译">
-<a class="header-anchor" href="#%e5%b0%9d%e8%af%95%e7%bc%96%e8%af%91"></a>
-尝试编译
-</h2><pre><code>  cd ./minidb
-  sudo bash build.sh init
-  成功执行
-  bash build.sh
-  成功编译
-</code></pre>
-<h2 id="打包一个镜像">
-<a class="header-anchor" href="#%e6%89%93%e5%8c%85%e4%b8%80%e4%b8%aa%e9%95%9c%e5%83%8f"></a>
-打包一个镜像
-</h2><p>用vmware直接克隆一个备份即可</p>
-<h2 id="运行oceanbase数据库">
-<a class="header-anchor" href="#%e8%bf%90%e8%a1%8coceanbase%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
-运行oceanBase数据库
-</h2><p>这里记录一下提交代码的网址:
-<a href="https://open.oceanbase.com/train?questionId=200001">https://open.oceanbase.com/train?questionId=200001</a></p>
-<p>oceanBase如何运行起来:
-<a href="https://oceanbase.github.io/miniob/how_to_run/">https://oceanbase.github.io/miniob/how_to_run/</a></p>
-<p>命令记录:</p>
-<pre tabindex="0"><code>cd home/casinan/workspace/oceanBCompertition/miniob/build
-以监听TCP端口的方式启动服务端程序:
-./bin/observer -f ../etc/observer.ini -p 6789
-
-打开另一个终端:
-到build目录下:
-客户端连接到服务端的6789端口:
-./bin/obclient -p 6789
-</code></pre><p><img src="image-1.png" alt="alt text"></p>
-<p>好的准备提交第一笔代码</p>
-<p>[备注: 此文档已经提交oceanBase官网]</p>
-
+        <h1 id="1204_openeuler系统扩容">
+<a class="header-anchor" href="#1204_openeuler%e7%b3%bb%e7%bb%9f%e6%89%a9%e5%ae%b9"></a>
+1204_openEuler系统扩容
+</h1><h2 id="步骤">
+<a class="header-anchor" href="#%e6%ad%a5%e9%aa%a4"></a>
+步骤
+</h2><p>增加物理卷
+拓展卷组
+拓展逻辑卷
+拓展文件系统</p>
+<p>查看块分配:
+lsblk
+<img src="image-5.png" alt="alt text">
+可以看到, 此时有3GB的可用磁盘空间还没有被分配到, 此时的物理磁盘分区为sda1 - sda3</p>
+<h3 id="增加物理卷">
+<a class="header-anchor" href="#%e5%a2%9e%e5%8a%a0%e7%89%a9%e7%90%86%e5%8d%b7"></a>
+增加物理卷:
+</h3><p>在VMWARE上先进行拓展</p>
+<p>sudo fdisk /dev/sda</p>
+<p>按n新建分区, 直接回车, 这里会默认创建 sda4 的物理卷, 最终如下所示:
+<img src="image-6.png" alt="alt text"></p>
+<p>创建物理卷:
+&ndash;在上面已经申请了新的分区, 为sda4
+sudo pvcreate /dev/sda4</p>
+<p>查看物理卷:
+sudo pvs
+<img src="image-7.png" alt="alt text"></p>
+<h3 id="拓展卷组">
+<a class="header-anchor" href="#%e6%8b%93%e5%b1%95%e5%8d%b7%e7%bb%84"></a>
+拓展卷组:
+</h3><p>首先查看卷组:
+sudo vgs
+<img src="image-8.png" alt="alt text">
+<strong>不同的物理卷可以被划归到同一个逻辑卷的</strong>
+sudo vgextend openEuler /dev/sda4
+所以这里将/dev/sda4加入到openEuler卷组中</p>
+<h3 id="拓展逻辑卷">
+<a class="header-anchor" href="#%e6%8b%93%e5%b1%95%e9%80%bb%e8%be%91%e5%8d%b7"></a>
+拓展逻辑卷:
+</h3><p>查看逻辑卷, 看下要挂载到哪里
+sudo lvs
+<img src="image-9.png" alt="alt text">
+这里选择了挂载在root分区上, 所以选择/dev/openEuler/root
+sudo lvextend -l +100%FREE /dev/openEuler/root</p>
+<h3 id="拓展文件系统">
+<a class="header-anchor" href="#%e6%8b%93%e5%b1%95%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f"></a>
+拓展文件系统:
+</h3><p>sudo resize2fs /dev/openEuler-vg/root
+<img src="image-10.png" alt="alt text">
+查看文件系统:
+sudo df -h</p>
+<p>几个主要的步骤:
+pvs 列出所有使用的磁盘分区,.
+vgs 列出所有分区组
+lvs 列出所有逻辑分区
+然后 pvextend
+最后才是 resize2fs</p>
+<h3 id="错误记录">
+<a class="header-anchor" href="#%e9%94%99%e8%af%af%e8%ae%b0%e5%bd%95"></a>
+错误记录:
+</h3><h4 id="1错误记录1-使用fdisk-devsda-后就无法重启了-不确定原因-但谨慎操作">
+<a class="header-anchor" href="#1%e9%94%99%e8%af%af%e8%ae%b0%e5%bd%951-%e4%bd%bf%e7%94%a8fdisk-devsda-%e5%90%8e%e5%b0%b1%e6%97%a0%e6%b3%95%e9%87%8d%e5%90%af%e4%ba%86-%e4%b8%8d%e7%a1%ae%e5%ae%9a%e5%8e%9f%e5%9b%a0-%e4%bd%86%e8%b0%a8%e6%85%8e%e6%93%8d%e4%bd%9c"></a>
+1.错误记录1: 使用fdisk /dev/sda 后就无法重启了, 不确定原因, 但谨慎操作
+</h4>
       
     </div>
     <footer class="article-footer">
@@ -519,7 +488,7 @@ g++ -l ljson-c
             />
           
         
-        <a href="https://caisn-github.github.io/post/1026_2024/%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"></a>
+        <a href="https://caisn-github.github.io/post/1204_2024/%E8%B0%83%E9%85%92%E7%B3%BB%E5%88%97%E6%95%B4%E7%90%86/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -542,7 +511,7 @@ g++ -l ljson-c
             />
           
         
-        <a href="https://caisn-github.github.io/post/1024_2024/ubuntu%E6%90%AD%E5%BB%BAmysql_docker%E8%B7%91%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"></a>
+        <a href="https://caisn-github.github.io/post/1204_2024/1204_2024%E6%AC%A7%E6%8B%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BC%96%E8%AF%91/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
@@ -581,11 +550,15 @@ g++ -l ljson-c
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
-    <li><a href="#环境搭建">环境搭建</a></li>
-    <li><a href="#尝试编译">尝试编译</a></li>
-    <li><a href="#打包一个镜像">打包一个镜像</a></li>
-    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+    <li><a href="#步骤">步骤</a>
+      <ul>
+        <li><a href="#增加物理卷">增加物理卷:</a></li>
+        <li><a href="#拓展卷组">拓展卷组:</a></li>
+        <li><a href="#拓展逻辑卷">拓展逻辑卷:</a></li>
+        <li><a href="#拓展文件系统">拓展文件系统:</a></li>
+        <li><a href="#错误记录">错误记录:</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -895,11 +868,15 @@ g++ -l ljson-c
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
-    <li><a href="#环境搭建">环境搭建</a></li>
-    <li><a href="#尝试编译">尝试编译</a></li>
-    <li><a href="#打包一个镜像">打包一个镜像</a></li>
-    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+    <li><a href="#步骤">步骤</a>
+      <ul>
+        <li><a href="#增加物理卷">增加物理卷:</a></li>
+        <li><a href="#拓展卷组">拓展卷组:</a></li>
+        <li><a href="#拓展逻辑卷">拓展逻辑卷:</a></li>
+        <li><a href="#拓展文件系统">拓展文件系统:</a></li>
+        <li><a href="#错误记录">错误记录:</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>

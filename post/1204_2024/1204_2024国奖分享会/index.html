@@ -111,7 +111,7 @@
     property="og:description"
     content="This is my awesome Hugo site!"
   />
-  <meta property="og:url" content="https://caisn-github.github.io/post/1026_2024/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/" />
+  <meta property="og:url" content="https://caisn-github.github.io/post/1204_2024/1204_2024%E5%9B%BD%E5%A5%96%E5%88%86%E4%BA%AB%E4%BC%9A/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
@@ -360,7 +360,7 @@
     <div class="article-meta">
       <div class="article-date">
   <a
-    href="https://caisn-github.github.io/post/1026_2024/1026%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"
+    href="https://caisn-github.github.io/post/1204_2024/1204_2024%E5%9B%BD%E5%A5%96%E5%88%86%E4%BA%AB%E4%BC%9A/"
     class="article-date-link"
     data-aos="zoom-in"
   >
@@ -383,101 +383,45 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="搭建oceanbase开发环境----编译--运行">
-<a class="header-anchor" href="#%e6%90%ad%e5%bb%baoceanbase%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83----%e7%bc%96%e8%af%91--%e8%bf%90%e8%a1%8c"></a>
-搭建OceanBase开发环境 &ndash; 编译 &amp; 运行
-</h2><p>[已报名参加大赛]</p>
-<p><!-- raw HTML omitted -->参照教程:<!-- raw HTML omitted -->
-<a href="https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2">https://oceanbase.github.io/miniob/dev-env/how_to_dev_miniob_by_vscode/#_2</a></p>
-<p><a href="https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md">https://github.com/oceanbase/miniob/blob/main/docs/docs/how_to_build.md</a></p>
-<h2 id="环境搭建">
-<a class="header-anchor" href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba"></a>
-环境搭建
-</h2><pre><code> 已经安装的工具如下: 
+        <h2 id="国奖演讲稿撰写">
+<a class="header-anchor" href="#%e5%9b%bd%e5%a5%96%e6%bc%94%e8%ae%b2%e7%a8%bf%e6%92%b0%e5%86%99"></a>
+国奖演讲稿撰写
+</h2><p>时间 : 12&gt;5 榆中秦岭堂 A404, 2.00 需要到
+化妆: 12.00 吃完饭准备过去
+12.5 早上: 要把腾讯会议拉出来
+12.4晚上: 拉工作人员小群</p>
+<p>人员名单:
+李禹佟 - 线下
+杨肖迪 - 线下
+张鸿瑜 - 线下
+江佳炫 - 线下
+张潆藜 (zhang ying li) -线上
+陈志文 - 线上
+伍阳 - 线上
+刘堃(liu kun) - 线上</p>
+<p>演讲稿:</p>
+<pre tabindex="0"><code>各位亲爱的老师, 同学们大家下午好, 非常感谢大家能来参加国家奖学金获得者的分享会. 在求学的路上, 我们会有迷茫, 会有困惑, 在科研路上我们不仅需要悉心指导, 也需要学习卓越的学长学姐们带给我们的成功经验和心得体会.
+
+所以今天我们非常荣幸地请到了几位非常非常优秀的师兄世界, 他们是今年国家奖学金的获得者, 
+
+下面, 让我们首先邀请李禹佟学长给我们带来他的分享经验. 大家掌声欢迎!
+
+好, 接下来是线上分享部分
+
+好的,本次国奖获得者经验分享会到此结束, 感谢同学们参与
+</code></pre><p>对于线下的转场, 这里提前搞几个:</p>
+<pre tabindex="0"><code>1. 感谢某某同学给我们的分享, 相信同学们听了他的经验一定有很多启发吧, , ** 同学给我们带来他的经验分享
+
+2. 好, 下一位发言人是***学长, 让我们一起聆听他的精彩分享
+
+3. 刚才我们听到了**同学的经历, 接下来我们将听到***同学带来的不同视角的分享
+
+4. 谢谢**同学给我们带来的满满的干货, 接下来有请***同学
+
+5. 我们从***同学的经历中收获了很多, 这能激励到我们每个人, 接下来有请
+
+6. 感谢**学长对我们的鼓励, 接下来我们有请***学长
 </code></pre>
-<pre tabindex="0"><code>--- 以下使用apt install即可安装, 安装之前先更行apt: sudo apt update ; sudo apt upgrade
-casinan@caisinan:~/Desktop$ cmake --version
-cmake version 3.28.3
-
-casinan@caisinan:~/Desktop$ make --version
-GNU Make 4.3
-
-casinan@caisinan:~/Desktop$ g++ --version
-g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-
-casinan@caisinan:~/Desktop$ gcc --version
-gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-
-casinan@caisinan:~/Desktop$ sudo apt install googletest
-[sudo] password for casinan: 
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-googletest is already the newest version (1.14.0-1).
-0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
-</code></pre><p>其中libevent的安装方式如下:</p>
-<pre tabindex="0"><code>wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
-
-然后参考教程: https://blog.csdn.net/superhoner/article/details/112001995
-
-配置安装环境:
-cd libevent-2.1.11-stable 
-./configure --prefix=/usr
-
-测试是否安装成功:
-ls -al /usr/local/lib | grep libevent
-</code></pre><p>其中jsoncpp的安装方式如下:</p>
-<pre tabindex="0"><code>参考教程 : https://blog.csdn.net/qq_52201535/article/details/133581163
-
-安装:  
-sudo apt-get install libjsoncpp-dev
-sudo apt install libjson-c-dev
-
-检查是否安装成功:
-ls /usr/include/jsoncpp/json/
-ls /usr/include/json-c/
-
-*******如何使用***:
-#include &lt;jsoncpp/json/json.h&gt;
-#include &lt;json-c/json.h&gt;
-编译: [链接库]
-g++ -l jsoncpp
-g++ -l ljson-c
-</code></pre><p>flex安装: sudo apt-get install flex</p>
-<p>bison安装参考: <a href="https://blog.csdn.net/Mculover666/article/details/118934814">https://blog.csdn.net/Mculover666/article/details/118934814</a></p>
-<h2 id="尝试编译">
-<a class="header-anchor" href="#%e5%b0%9d%e8%af%95%e7%bc%96%e8%af%91"></a>
-尝试编译
-</h2><pre><code>  cd ./minidb
-  sudo bash build.sh init
-  成功执行
-  bash build.sh
-  成功编译
-</code></pre>
-<h2 id="打包一个镜像">
-<a class="header-anchor" href="#%e6%89%93%e5%8c%85%e4%b8%80%e4%b8%aa%e9%95%9c%e5%83%8f"></a>
-打包一个镜像
-</h2><p>用vmware直接克隆一个备份即可</p>
-<h2 id="运行oceanbase数据库">
-<a class="header-anchor" href="#%e8%bf%90%e8%a1%8coceanbase%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
-运行oceanBase数据库
-</h2><p>这里记录一下提交代码的网址:
-<a href="https://open.oceanbase.com/train?questionId=200001">https://open.oceanbase.com/train?questionId=200001</a></p>
-<p>oceanBase如何运行起来:
-<a href="https://oceanbase.github.io/miniob/how_to_run/">https://oceanbase.github.io/miniob/how_to_run/</a></p>
-<p>命令记录:</p>
-<pre tabindex="0"><code>cd home/casinan/workspace/oceanBCompertition/miniob/build
-以监听TCP端口的方式启动服务端程序:
-./bin/observer -f ../etc/observer.ini -p 6789
-
-打开另一个终端:
-到build目录下:
-客户端连接到服务端的6789端口:
-./bin/obclient -p 6789
-</code></pre><p><img src="image-1.png" alt="alt text"></p>
-<p>好的准备提交第一笔代码</p>
-<p>[备注: 此文档已经提交oceanBase官网]</p>
-
       
     </div>
     <footer class="article-footer">
@@ -519,7 +463,7 @@ g++ -l ljson-c
             />
           
         
-        <a href="https://caisn-github.github.io/post/1026_2024/%E6%90%AD%E5%BB%BAoceanbase%E7%8E%AF%E5%A2%83/"></a>
+        <a href="https://caisn-github.github.io/post/1204_2024/1204_2024%E6%AC%A7%E6%8B%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BC%96%E8%AF%91/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
@@ -542,7 +486,7 @@ g++ -l ljson-c
             />
           
         
-        <a href="https://caisn-github.github.io/post/1024_2024/ubuntu%E6%90%AD%E5%BB%BAmysql_docker%E8%B7%91%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"></a>
+        <a href="https://caisn-github.github.io/post/1126_2024%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/1126_2024_%E4%BD%9C%E4%B8%9A%E5%AE%8C%E6%88%90/"></a>
         <div class="article-nav-caption">Older</div>
         <h3 class="article-nav-title">
           
@@ -581,11 +525,7 @@ g++ -l ljson-c
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
-    <li><a href="#环境搭建">环境搭建</a></li>
-    <li><a href="#尝试编译">尝试编译</a></li>
-    <li><a href="#打包一个镜像">打包一个镜像</a></li>
-    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+    <li><a href="#国奖演讲稿撰写">国奖演讲稿撰写</a></li>
   </ul>
 </nav>
   </div>
@@ -895,11 +835,7 @@ g++ -l ljson-c
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#搭建oceanbase开发环境----编译--运行">搭建OceanBase开发环境 &ndash; 编译 &amp; 运行</a></li>
-    <li><a href="#环境搭建">环境搭建</a></li>
-    <li><a href="#尝试编译">尝试编译</a></li>
-    <li><a href="#打包一个镜像">打包一个镜像</a></li>
-    <li><a href="#运行oceanbase数据库">运行oceanBase数据库</a></li>
+    <li><a href="#国奖演讲稿撰写">国奖演讲稿撰写</a></li>
   </ul>
 </nav>
   </div>
