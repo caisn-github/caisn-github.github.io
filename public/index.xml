@@ -13,7 +13,7 @@
       <link>http://localhost:1313/post/hello/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <guid>http://localhost:1313/post/hello/</guid>
-      <description>&lt;p&gt;💘 博麗 霊夢 💘&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;hello-world&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#hello-world&#34;&gt;&lt;/a&gt;&#xA;hello world&#xA;&lt;/h2&gt;&lt;p&gt;This is a test post.&#xA;&lt;img src=&#34;image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
