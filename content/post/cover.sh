@@ -32,11 +32,11 @@ function read_dir() {
 		then 
 	       	        echo ${subDir}
 			cd ${subDir}
-			read_dir ./${subDir} 
+			read_dir ./
 			cd ..
+		        mvImage
 		fi
 
-		mvImage
 	done
 }
 
