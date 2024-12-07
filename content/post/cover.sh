@@ -31,10 +31,11 @@ function read_dir() {
 		if [ -d $1"/"$subDir ]
 		then 
 	       	        echo ${subDir}
+			cd ${subDir}
 			read_dir ./${subDir} 
+			cd ..
 		fi
 
-		cd $subDir
 		mvImage
 	done
 }
