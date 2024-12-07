@@ -3,7 +3,7 @@ function readFile() {
    cat 1.1 | while read line
       do
               len2=${#line}
-              #echo ${line: 0: len2-3}
+              echo ${line: 0: len2-3}
               mkdir ${line: 0: len2-3}
               cp *.png ${line: 0: len2-3}
               # echo [${path}]
@@ -31,11 +31,10 @@ function read_dir() {
 		if [ -d $1"/"$subDir ]
 		then 
 	       	        echo ${subDir}
-			read_dir ./${subDir} 
+			read_dir $1"/"$subDir
+                        cd $subDir
+			mvImage
 		fi
-
-		cd $subDir
-		mvImage
 	done
 }
 

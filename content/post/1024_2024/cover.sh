@@ -32,10 +32,11 @@ function read_dir() {
 		then 
 	       	        echo ${subDir}
 			read_dir ./${subDir} 
+                        cd $subDir
+	       	        echo `pwd` 
+			echo "this is can test"
+			mvImage
 		fi
-
-		cd $subDir
-		mvImage
 	done
 }
 
