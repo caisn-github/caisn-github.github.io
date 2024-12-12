@@ -1,0 +1,36 @@
+# grpah500测评
+## 今日规划-2024年12月12日
+- [ ] 完成graph500测评
+- [ ] 机器学习作业
+流程:
+
+### 环境说明:
+- 系统: ubuntu24.01 LTS
+- 内核: 使用加入了repdabp的linux kernel
+- 测评工具: graph500-3.0.0
+
+### 安装说明:
+首先下载对应安装包, 这里是实验室的graph500-3.0.0, 先fork到自己仓库, 加入ssh, 然后拉取代码, 安装对应工具:
+```
+git clone git@git.dslab.lzu.edu.cn:caisn2024/graph500.git
+sudo apt install openmpi-bin openmpi-common libopenmpi-dev
+```
+
+然后进行编译:
+[备注: 如果需要其他的工具链, kernel等, 请自行安装]
+```
+cd graph500/src
+make
+```
+make完之后, 在src目录下会出现两个可执行脚本: graph500_reference_bfs和graph500_reference_bfs_sssp
+
+
+### 测评说明:
+它的几个参数是这样用的:
+```
+export TMPFILE=graph_data.txt
+export REUSEFILE=export 
+export SKIP_BFS=1
+```
+实际运行的时候: 
+./graph500_reference_bfs_sssp 24 10 这样运行, 24是点数, 10是边数
