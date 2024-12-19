@@ -1,0 +1,1 @@
+/home/caisn/Desktop/MD_FILE/day record/1026_2024/1026搭建oceanbase环境.md
