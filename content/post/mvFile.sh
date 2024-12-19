@@ -7,6 +7,8 @@ cp -r ./${1}/* /root/blog/snBlog/content/post/${1}
 cd /root/blog/snBlog
 ls -a
 git status
+git fetch --all
+git rebase 
 git add content/*
 git commit -m "add new article"
-git push 
+git push snDay main 
